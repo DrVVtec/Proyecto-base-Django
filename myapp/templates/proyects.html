@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<h1>Proyectos</h1>
+
+<a href="/create_proyect/">
+    <button type="button" class="btn btn-secondary">
+        Crear nuevo
+    </button>
+</a>
+
+<table class="table">
+    <tr><th>Proyecto</th><th>Tipo</th><th>Responsable</th><th>Tareas</th></tr>
+    
+    {% for proyect in  lista_proyectos %}
+    <tr>
+        <td>{{proyect.name}}</td>
+        <td>{{proyect.tipo}}</td>
+        <td>{{proyect.responsable}}</td>
+        <td>
+            <a href="{% url 'myapp_proyect_tasks' proyect.id %}">
+                <button type="button" class="btn btn-outline-secondary btn-sm">Detalle</button></td>
+            </a>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

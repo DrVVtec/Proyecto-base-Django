@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<h1>Proyecto: {{ proyect.name }}</h1>
+
+<h2>Tareas</h2>
+
+<table class="table">
+    <tr><th>Actividad</th><th>Prioridad</th><th>Asignación</th><th>Límite</th><th>Entrega</th><th colspan="2">Acciones</th></tr>
+
+    {% for task in lista_tareas %}
+
+    <tr>
+        <td>{{task.titulo}}</td>
+        <td>{{task.prioridad}}</td>
+        <td>{{task.fecha_asignacion}}</td>
+        <td>{{task.fecha_limite}}</td>
+        <td>{{task.fecha_entrega}}</td>
+        <td><button type="button" class="btn btn-outline-secondary btn-sm">Actualizar</button></td>
+        <td>
+            <form method="POST">
+                {% csrf_token %}
+                <button class="btn btn-outline-danger btn-sm"  type="submit" formaction="{% url 'myapp_delete_task' task.id %}">
+                    Borrar
+                </button>
+            </form>
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+<a href="{% url 'myapp_create_task' proyect.id %}">
+    <button type="button" class="btn btn-primary">
+        Agregar tarea
+    </button>
+</a>
+
+{% endblock %}

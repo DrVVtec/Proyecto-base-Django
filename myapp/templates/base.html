@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+    <div class="container-fluid">
+        <ul class="nav bg-primary">
+            <li class="nav-item"><a class="nav-link link-light" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link link-light" href="/proyects/">Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link link-light" href="/tasks/">Tareas</a></li>
+            <li class="nav-item"><a class="nav-link link-light" href="{% url 'myapp_about' %}">About</a></li>
+        </ul>
+    </div>
+
+<div class="container">
+    {% block contenido %}
+    {% endblock %}
+</div>
+</html>
