@@ -1,8 +1,14 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.contrib.auth import login
+from django.db import IntegrityError
+#from django.http import HttpResponse
+
 # Create your views here.
+
+def welcome(request):
+    return render(request,'welcome.html')
 
 def signup(request):
     if request.method == "GET":
@@ -15,8 +21,10 @@ def signup(request):
             try:
                 usuario = User.objects.create_user(username=request.POST["username"],password=request.POST["password1"])
                 usuario.save()
-                return HttpResponse("Usuario creado correctamente.")
-            except:
+                login(request,usuario)
+                return redirect('myapp_index')
+                #return HttpResponse("Usuario creado correctamente.")
+            except IntegrityError:
                 return render(request,'signup.html',{
                     'form':UserCreationForm,
                     'mensaje':"El usuario ya existe."
