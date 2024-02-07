@@ -64,11 +64,5 @@ def delete_task(request, id_t):
   id_p = 1
   return redirect('myapp_proyect_tasks',id_p)
 
-    
-
-
-def hello(request):
-  return HttpResponse("<h1>Hello World</h1>")
-
 def about(request):
   return render(request,'about.html')
