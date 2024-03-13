@@ -4,4 +4,8 @@ Intro_Django.Rmd
 Intro_Django.nb.html
 .venv/
 myapp/__pycache__/
+myapp/migrations/__pycache__/
 mysite/__pycache__/
+authUsuarios/__pycache__/
+authUsuarios/migrations/__pycache__/
+*/__pycache__/*
