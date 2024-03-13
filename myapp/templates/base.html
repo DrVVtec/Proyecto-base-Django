@@ -8,12 +8,12 @@
     </head>
     <div class="container-fluid">
         <ul class="nav bg-primary">
-            <li class="nav-item"><a class="nav-link link-light" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link link-light" href="/home/">Home</a></li>
             <li class="nav-item"><a class="nav-link link-light" href="/proyects/">Proyectos</a></li>
             <li class="nav-item"><a class="nav-link link-light" href="/tasks/">Tareas</a></li>
             <li class="nav-item"><a class="nav-link link-light" href="{% url 'myapp_about' %}">About</a></li>
             {% if user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link link-light" href="/">Logout</a></li>
+                <li class="nav-item"><a class="nav-link link-light" href="/logout/">Logout</a></li>
             {% endif %}
         </ul>
     </div>

@@ -2,3 +2,6 @@
 .Rhistory
 Intro_Django.Rmd
 Intro_Django.nb.html
+.venv/
+myapp/__pycache__/
+mysite/__pycache__/
